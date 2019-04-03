@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=500, initial-scale=1">
+<title>Title of the document</title>
+<style>
+	.box{
+		width: 20%;
+		height: 50px;
+		background-color: red;
+		opacity: 1;
+		margin: 5px;
+		float: left;
+	}
+
+</style>
+</head>
+
+<body>
+
+
+
+<div id='element'></div>
+
+
+<div id="saida1"></div>
+<button id="add1">ADD</button>
+
+<!-- aqui está o template do html que cada nova linha leva -->
+<template id="templateLinha">
+  <div class="linha">
+    <div class="coluna1">
+       <p class="box">sasas</p>
+    </div>
+  </div>
+</template>
+
+
+<div id="altura"></div>
+
+<script type="text/javascript">
+
+
+	for(var i =0; i<10; i++){ 
+		document.getElementById('altura').innerHTML += "<div class='box'>"+"</div>";
+}	
+	
+
+	
+	var alturaAtual = document.getElementById('altura').clientWidth;
+	var windowWidth = window.innerWidth;
+
+	//alert(alturaAtual);
+	//alert(windowWidth);
+
+document.getElementById("add1").onclick = 
+
+function clone() {
+  let container = document.getElementById("saida1");  
+  let tempLinha = document.querySelector('#templateLinha'); //obter o template
+  let clone = document.importNode(tempLinha.content, true); //clonar
+  
+  //alterar o que interessa no template clonado
+  const label = clone.querySelector("p");
+
+  
+  container.appendChild(clone);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
